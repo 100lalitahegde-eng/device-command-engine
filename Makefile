@@ -16,6 +16,8 @@ $(BUILD)/tests: tests/device_test.cpp src/device.cpp include/device.hpp | $(BUIL
 
 test: $(BUILD)/tests
 	./$(BUILD)/tests
+	$(CXX) $(CXXFLAGS) -Iinclude tests/queue_test.cpp src/queue.cpp src/device.cpp -o $(BUILD)/queue_tests
+	./$(BUILD)/queue_tests
 
 demo: $(BUILD)/demo
 	./$(BUILD)/demo
