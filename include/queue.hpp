@@ -20,7 +20,7 @@ public:
     std::optional<Ticket> submit(Owner owner, std::uint32_t command);
     std::optional<Job> inspect(Owner owner, Ticket ticket) const;
     bool cancel(Owner owner, Ticket ticket); // waiting jobs only
-    void advance(); // at most one device status poll; starts the next job if idle
+    void advance(); // idle-status check before starting a job; at most one completion-status poll
     void reset(); // abandons outstanding jobs and resets the device
     std::size_t waiting() const { return waiting_.size(); }
 private:
