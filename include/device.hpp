@@ -29,7 +29,7 @@ private:
     Registers& registers_;
 };
 
-// An invented, deterministic register bank; never performs physical I/O.
+// Deterministic register bank. Performs no physical I/O.
 class SimulatedDevice final : public Registers {
 public:
     explicit SimulatedDevice(std::uint32_t polls_until_completion = 1);
